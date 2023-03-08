@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>HI this is {{user.username}}</h1> 
+{% endblock %}
+{% block sidebar %}
+{% load static %}
+<img src="{% static 'post.jpg' %}" alt="my picture" swidth="500" height="600">
+<ul class="sidebar-nav">
+    {% for item in sidebar %}
+        <li><a href="">{{item}}</a></li>
+    {% endfor %}
+</ul>
+{% for a in articles %}
+<table> 
+    <tr>
+        <td>{{ a.id }}</td>
+        <td>{{ a.user }}</td>
+        <td>{{ a.contents }}</td>
+        <td>{{ a.last_update }}</td>
+    </tr>
+{% endfor %}
+    <div class="pagination">
+        
+
+    {% if articles.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ articles.previous_page_number }}">Previous</a>
+    {% endif %}
+        <span>{{ articles.number }}</span>
+        <span>of</span>
+        <span>{{ articles.paginator.num_pages }}</span>
+    {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">Next</a>
+            <a href="?page={{ articles.paginator.num_pages }}">Last</a>
+    {% endif %}
+        
+    
+    </div>
+</table>
+
+{% endblock %}

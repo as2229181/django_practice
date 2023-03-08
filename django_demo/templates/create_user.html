@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章內容評論</title>
+</head>
+<body>
+    <h2>新增本地使用者</h2>
+    <form method="post" action="/blog/create">{% csrf_token %}
+        <label for="content">lastname:</label><br/>
+        <input type="text" id="content" name="content"><br/>
+        <label for="content">firstname:</label><br/>
+        <input type="text" id="content" name="content"><br/>
+        <input type="submit" id="submit" value="submit">
+      </form>
+</body>
+</html>
